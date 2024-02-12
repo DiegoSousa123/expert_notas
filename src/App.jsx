@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CardNote } from "./CardNote.jsx";
 import { CardAdicionar } from "./CardAdicionar.jsx";
-
+import { toast } from 'sonner'
 export function App() {
 	const [search, setSearch] = useState('');
   const [notes, setNotes] = useState(() =>{
@@ -25,7 +25,7 @@ export function App() {
         setNotes(notesArray);
         localStorage.setItem("notes", JSON.stringify(notesArray));
     } else {
-        console.error(`Duplicate ID detected: ${id}`);
+			toast.error("Erro ao salvar nota... Tente novamente");
     }
 }
 
